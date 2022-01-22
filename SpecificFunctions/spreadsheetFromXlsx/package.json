@@ -28,6 +28,7 @@
     "igniteui-webcomponents-core": "1.4.1",
     "igniteui-webcomponents-excel": "1.4.1",
     "igniteui-webcomponents-spreadsheet": "1.4.1",
+    "igniteui-webcomponents-spreadsheet-chart-adapter": "^1.4.1",
     "lit-html": "^2.0.0",
     "tslib": "^2.0.0"
   },
@@ -41,6 +42,7 @@
     "@types/source-map": "^0.5.7",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-custom-element-classes": "^0.1.0",
+    "copy-webpack-plugin": "4.6",
     "css-loader": "^1.0.0",
     "csv-loader": "^3.0.2",
     "file-loader": "^4.2.0",

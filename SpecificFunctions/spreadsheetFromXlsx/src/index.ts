@@ -3,9 +3,11 @@ import { IgcSpreadsheetComponent } from 'igniteui-webcomponents-spreadsheet';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { Workbook } from 'igniteui-webcomponents-excel';
 import { WorkbookOptionsBase, WorkbookFormat } from 'igniteui-webcomponents-excel';
+import { IgcSpreadsheetChartAdapterModule } from 'igniteui-webcomponents-spreadsheet-chart-adapter';
+import { SpreadsheetChartAdapter } from 'igniteui-webcomponents-spreadsheet-chart-adapter';
 import { ExcelUtility } from './ExcelUtility';
 
-ModuleManager.register(IgcSpreadsheetModule);
+ModuleManager.register(IgcSpreadsheetModule,IgcSpreadsheetChartAdapterModule);
 
 export class SpreadsheetOverview {
 
@@ -14,6 +16,7 @@ export class SpreadsheetOverview {
     constructor() {
 
         this.spreadsheet = document.getElementById('spreadsheet') as IgcSpreadsheetComponent;
+        this.spreadsheet.chartAdapter = new SpreadsheetChartAdapter();
 
         let path = 'https://static.infragistics.com/xplatform/excel/SalesData.xlsx';
         ExcelUtility.loadFromUrl(path).then((w) => {

@@ -1,5 +1,6 @@
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -30,7 +31,13 @@ module.exports = env => {
         { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
         { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
         { test: /\.xml$/, use: ['xml-loader'] },
-        { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
+        { test: /\.css$/, include: [path.resolve(__dirname, 'src')], use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: { url: false }
+          }
+        ] },
         { test: /\.(ts|js)$/, loader: 'babel-loader',
         options: {
           "compact": isProd ? true : false,
@@ -73,6 +80,9 @@ module.exports = env => {
         title: 'for-cs',
         template: 'index.html'
       }),
+      new CopyWebpackPlugin([
+        { from: 'src/index.css', to: 'src/index.css' }
+      ]),
       new ForkTsCheckerWebpackPlugin()
     ]
   };
