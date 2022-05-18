@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="Description" content="Put your description here.">
+  <base href="/">
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <title>my-app</title>
+</head>
+
+<body>
+  <div style="padding: 10px">
+    <igc-data-grid id="grid" height="600px" width="100%" auto-generate-columns="false">
+      <igc-combo-box-column id="country" field="Country"></igc-combo-box-column>
+      <igc-date-time-column id="sampleDate" field="SampleDate"></igc-date-time-column>
+    </igc-data-grid>
+  </div>
+
+  <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+  <script type="module" src="./out-tsc/src/my-app.js"></script>
+</body>
+
+</html>
