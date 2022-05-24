@@ -35,6 +35,7 @@ export class Sample {
     }
 
     onCellEditStarted = (s: any, a: any) => {
+      setTimeout(() => {
         if (!this.combo) {
             let combos = document.getElementsByTagName("igc-multi-column-combo-box");
             if (combos.length > 0)
@@ -50,6 +51,7 @@ export class Sample {
             this.dateInput = dateInputs[0] as HTMLInputElement;
             this.dateInput.addEventListener('input',this.inputChange);
         }
+      })
     }
 
     onCellValueChanging(s: IgcDataGridComponent, e: IgcGridCellValueChangingEventArgs) {
